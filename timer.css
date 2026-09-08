@@ -1,0 +1,84 @@
+@import url('https://fonts.cdnfonts.com/css/blafhy-glibs');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --BGCOLOR: radial-gradient(#f8f6f0,#FEFD99);
+    --FONT: 'Blafhy Glibs', sans-serif;
+}
+
+body{
+    font-family: var(--FONT);
+    min-height: 100vh;
+    background-image: url("honeybg.jpg");
+    align-items: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    min-width: 500px;
+    min-height: 580px;
+    background-image:var(--BGCOLOR);
+    border: 3px double rgb(0, 0, 0);
+    border-radius: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Blafhy Glibs', sans-serif;
+}
+#timer{
+    font-size: 100px;
+}
+
+#timerstartpage{
+    font-size: 60px;
+    padding: 20%;
+}
+.start{
+    font-family: var(--FONT);
+    font-weight: bold;
+    min-width: 20%;
+    padding: 0.7rem;
+    border: 3px solid black;
+    border-radius: 40%;
+    background-color: #FFF6C0;
+    transform: scale(1); 
+    transition: background-color 2s ease;  
+    animation: butty 2s ease;
+}
+.start:hover, .start:focus{
+    animation: startbutton 1.2s ease-in-out infinite;
+    background-color: #f2d16f;
+    cursor: pointer;
+}
+@keyframes butty {
+    0%,100%,50%{
+        transform: scale(1.2);
+    }
+}
+.stop-box {
+  min-width: 30px;
+  min-height: 30px;
+  border: 3px solid #333;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 2%;
+  margin: 2%;
+  cursor: pointer;
+}
+
+.stop-icon {
+  min-width: 10px;
+  min-height: 10px;
+  background-color: #fe0202;
+
+}

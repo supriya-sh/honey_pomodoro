@@ -1,13 +1,32 @@
 let studyTime= document.getElementById("studytime");
 let breakTime= document.getElementById("breaktime");
+let startTime= document.getElementById("timerstartpage");
+let done = document.getElementById("done");
+
+function breakTimer(){
+    
+}
+
+
+
+if (startTime) {
+    let savedTime = localStorage.getItem("studyTime");
+    startTime.textContent = savedTime + ":  00";
+}
+
+function pauseTimer(){
+    
+}
 
 function startTimer() {
-    timeLeft = Number(studyTime.value) * 60;
+    pauseTimer();
+    let savedTime = localStorage.getItem("studyTime");
+    timeLeft = Number(savedTime) * 60;
     done.textContent = "";
     function updateTimer() {
         let minutes = Math.floor(timeLeft / 60);
         let seconds = timeLeft % 60;
-        timer.textContent =
+        startTime.textContent =
             String(minutes).padStart(2, "0") + ":" +
             String(seconds).padStart(2, "0");
         if (timeLeft === 0) {
@@ -20,8 +39,6 @@ function startTimer() {
     updateTimer();
     countdown = setInterval(updateTimer, 1000);
 }
-
-
 
 function showBreakTime(){
     if (studyTime.value=="25"){
@@ -47,5 +64,11 @@ function showBreakTime(){
     }
     
 };
-studyTime.addEventListener("change", showBreakTime)
-showBreakTime();
+if (studyTime && breakTime) {
+    studyTime.addEventListener("change", showBreakTime);
+    showBreakTime();
+}
+function goToTimer() {
+    localStorage.setItem("studyTime", studyTime.value);
+    window.location.href = "timer.html";
+}
