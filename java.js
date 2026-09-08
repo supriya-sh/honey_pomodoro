@@ -2,9 +2,23 @@ let studyTime= document.getElementById("studytime");
 let breakTime= document.getElementById("breaktime");
 let startTime= document.getElementById("timerstartpage");
 let done = document.getElementById("done");
+let timerButton = document.getElementById("timerButton");
+let timerIcon = document.querySelector(".stop-icon");
+let countdown;
+let timeLeft;
 
 function breakTimer(){
-    
+    if (countdown) {
+        clearInterval(countdown);
+        countdown = null;
+        timerIcon.classList.remove("stop-icon");
+        timerIcon.classList.add("resume");
+    }
+    else {
+        countdown = setInterval(updateTimer, 1000);
+        timerIcon.classList.remove("resume");
+        timerIcon.classList.add("stop-icon");
+    }
 }
 
 
