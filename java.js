@@ -4,54 +4,79 @@ let startTime= document.getElementById("timerstartpage");
 let done = document.getElementById("done");
 let timerButton = document.getElementById("timerButton");
 let timerIcon = document.querySelector(".stop-icon");
+let startbutton= document.getElementById("start-btn")
 let countdown;
 let timeLeft;
-
-function breakTimer(){
-    if (countdown) {
-        clearInterval(countdown);
-        countdown = null;
-        timerIcon.classList.remove("stop-icon");
-        timerIcon.classList.add("resume");
-    }
-    else {
-        countdown = setInterval(updateTimer, 1000);
-        timerIcon.classList.remove("resume");
-        timerIcon.classList.add("stop-icon");
-    }
-}
-
 
 
 if (startTime) {
     let savedTime = localStorage.getItem("studyTime");
-    startTime.textContent = savedTime + ":  00";
+    timeLeft = Number(savedTime) * 60;
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    startTime.textContent =
+        String(minutes).padStart(2, "0") + ":" +
+        String(seconds).padStart(2, "0");
 }
 
-function pauseTimer(){
-    
-}
-
-function startTimer() {
-    pauseTimer();
+function resetTimer(){
+    clearInterval(countdown);
+    countdown = null;
     let savedTime = localStorage.getItem("studyTime");
     timeLeft = Number(savedTime) * 60;
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    startTime.textContent =
+        String(minutes).padStart(2, "0") + ":" +
+        String(seconds).padStart(2, "0");
     done.textContent = "";
-    function updateTimer() {
-        let minutes = Math.floor(timeLeft / 60);
-        let seconds = timeLeft % 60;
-        startTime.textContent =
-            String(minutes).padStart(2, "0") + ":" +
-            String(seconds).padStart(2, "0");
-        if (timeLeft === 0) {
-            clearInterval(countdown);
-            done.textContent = "Done! Take some break!!";
-            return;
-        }
-        timeLeft--;
+    timerIcon.classList.remove("resume");
+    timerIcon.classList.add("stop-icon");
+}
+
+
+
+function updateTimer() {
+    minutes = Math.floor(timeLeft / 60);
+    seconds = timeLeft % 60;
+    startTime.textContent =
+        String(minutes).padStart(2, "0") + ":" +
+        String(seconds).padStart(2, "0");
+    if (timeLeft === 0) {
+        clearInterval(countdown);
+        done.textContent = "Done! Take some break!!";
+        return;
     }
-    updateTimer();
+    timeLeft--;
+}
+
+// function startTimer() {
+//     done.textContent = "";
+//     updateTimer();
+//     countdown = setInterval(updateTimer, 1000);
+// }
+
+function startTimer() {
+
+    // If timer is running, pause it
+    if (countdown) {
+
+        clearInterval(countdown);
+        countdown = null;
+
+        timerIcon.classList.remove("stop-icon");
+        timerIcon.classList.add("resume");
+
+        return;
+    }
+
+    // If timer is paused, start again
+    done.textContent = "";
     countdown = setInterval(updateTimer, 1000);
+    timerIcon.classList.remove("resume");
+    timerIcon.classList.add("stop-icon");
+    startbutton.textContent="Pause"
+    updateTimer();
 }
 
 function showBreakTime(){
