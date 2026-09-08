@@ -10,6 +10,27 @@
     --BGCOLOR: radial-gradient(#f8f6f0,#FEFD99);
     --FONT: 'Blafhy Glibs', sans-serif;
 }
+.container .back-arrow{
+    width: 25px;
+    height: 25px;
+    border-top: 5px solid #000;
+    border-left: 5px solid #000;
+    transform: rotate(-45deg);
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    position: absolute;
+    top: 163px;
+    left: 176px;
+    cursor: pointer;
+    color: #000;
+}
+.back-arrow:hover, .back-arrow:focus{
+    border-top: 8px solid #5E3122;
+    border-left: 8px solid #5E3122;
+}
+
+
 
 body{
     font-family: var(--FONT);

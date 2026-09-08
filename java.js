@@ -8,6 +8,9 @@ let startbutton= document.getElementById("start-btn")
 let countdown;
 let timeLeft;
 
+function goBack(){
+    window.location.href = "index.html";
+}
 
 if (startTime) {
     let savedTime = localStorage.getItem("studyTime");
