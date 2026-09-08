@@ -53,12 +53,6 @@ function updateTimer() {
     timeLeft--;
 }
 
-// function startTimer() {
-//     done.textContent = "";
-//     updateTimer();
-//     countdown = setInterval(updateTimer, 1000);
-// }
-
 function startTimer() {
 
     // If timer is running, pause it
