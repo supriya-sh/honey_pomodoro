@@ -11,6 +11,7 @@
     --FONT: 'Blafhy Glibs', sans-serif;
 }
 .container .back-arrow{
+    position: absolute;
     width: 25px;
     height: 25px;
     border-top: 5px solid #000;
@@ -20,8 +21,8 @@
     justify-content: left;
     align-items: left;
     position: absolute;
-    top: 163px;
-    left: 176px;
+    top: 80px;
+    left: 40px;
     cursor: pointer;
     color: #000;
 }
@@ -42,6 +43,7 @@ body{
     align-items: center;
 }
 .container{
+    position: relative;
     min-width: 500px;
     min-height: 580px;
     background-image:var(--BGCOLOR);
