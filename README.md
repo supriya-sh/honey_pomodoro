@@ -2,6 +2,8 @@
 
 A multi-page Pomodoro-style study timer built with vanilla HTML, CSS, and JavaScript. Pick a study duration, get a matching break time, and let the app guide you through a full study/break cycle — with pause, resume, reset, and an alarm sound when each stage ends.
 
+## LIVE LINK : honey-pomodoro-93hmmvf35-supriya-83b1.vercel.app
+
 ## Features
 
 - **Custom study/break pairing** — choose a study duration (25 to 90 minutes) and the app automatically calculates the matching break time (e.g. 25 min study → 5 min break, 90 min study → 20 min break)
